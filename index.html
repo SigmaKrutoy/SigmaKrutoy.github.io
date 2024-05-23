@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Перенаправление на Discord</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			text-align: center;
+			padding-top: 50px;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			color: #fff;
+			margin: 0;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+		}
+		h1 {
+			font-size: 36px;
+			margin-bottom: 30px;
+		}
+		p {
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+		button {
+			background-color: #7289da;
+			border: none;
+			color: #fff;
+			font-size: 20px;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #677bc4;
+		}
+	</style>
+	<script>
+		function getRandomImage() {
+			var images = [
+				"images/image1.png",
+				"images/image2.png",
+				"images/image3.png",
+				"images/image4.png",
+				"images/image5.png"
+			];
+			var randomIndex = Math.floor(Math.random() * images.length);
+			var selectedImage = images[randomIndex];
+			document.body.style.backgroundImage = "url('" + selectedImage + "')";
+		}
+	</script>
+</head>
+<body onload="getRandomImage()">
+	<h1>Перенаправление на Discord</h1>
+	<p>Вы будете перенаправлены на Discord через <span id="countdown">5</span> секунд.</p>
+	<button onclick="location.href='https://discord.gg/QUdThZRrBC'">Перейти сейчас</button>
+	<script>
+		var seconds = 5;
+		function countdown() {
+			seconds = seconds - 1;
+			if (seconds < 0) {
+				window.location = "https://discord.gg/QUdThZRrBC";
+			} else {
+				document.getElementById("countdown").innerHTML = seconds;
+				setTimeout(countdown, 1000);
+			}
+		}
+		countdown();
+	</script>
+</body>
+</html>
